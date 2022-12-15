@@ -49,7 +49,7 @@ const Title: React.FC<{
 }) => {
   return (
     <h1 className={Styles.Title}>
-      <a>
+      <a href='/'>
         <img className={Styles.TitleIcon} src={icon} />
         {content}
       </a>

@@ -10,6 +10,9 @@ export namespace CommonStyles {
       secondary: '#444444',
       low: '#666666',
     },
+    border: {
+      level1: '#F4F4F4',
+    },
   };
 
   export const Shadows = {

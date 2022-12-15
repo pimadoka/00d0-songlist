@@ -40,6 +40,11 @@ ul {
   list-style: none;
 }
 
+table {
+  border-spacing: unset;
+  border-collapse: collapse;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

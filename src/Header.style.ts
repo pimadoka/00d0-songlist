@@ -1,5 +1,6 @@
 // import { css } from 'styled-components';
 import { css } from '@emotion/css';
+import { transparentize } from 'polished';
 import { CommonStyles } from './common/styles';
 import { px2rem } from './utils';
 
@@ -10,8 +11,11 @@ export namespace Styles {
   export const Header = css`
     width: 100%;
     height: ${px2rem(HeaderHeight)};
-    background: ${CommonStyles.Colors.bg.secondary};
+    background: ${transparentize(0.25, CommonStyles.Colors.bg.secondary)};
     box-shadow: ${CommonStyles.Shadows.common};
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
   `;
   export const HeaderContent = css`
     max-width: ${px2rem(HeaderContentWidth)};
