@@ -4,7 +4,7 @@ import { transparentize } from 'polished';
 import { CommonStyles } from './common/styles';
 import { px2rem } from './utils';
 
-export const HeaderContentWidth = 1280;
+export const HeaderContentWidth = CommonStyles.ContentWidth;
 export const HeaderHeight = 72;
 
 export namespace Styles {

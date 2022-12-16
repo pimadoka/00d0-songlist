@@ -1,4 +1,6 @@
 export namespace CommonStyles {
+  export const ContentWidth = 1280;
+
   export const Colors = {
     primary: '#EE6867',
     bg: {
