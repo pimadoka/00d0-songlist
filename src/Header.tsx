@@ -1,6 +1,7 @@
 import React from 'react';
 import { Styles } from './Header.style';
 import AvatarImg from './assets/imgs/avatar-1.jpg';
+import TitleImg from './assets/imgs/title.png';
 
 const titleText = '凜凜蝶凜';
 const navList = [
@@ -63,7 +64,12 @@ export const Header: React.FC = () => {
       <div className={Styles.HeaderContent}>
 
         <div className={Styles.HeaderSide}>
-          <Title icon={AvatarImg} content={titleText} />
+          <Title
+            icon={AvatarImg}
+            content={
+              <img className={Styles.TitleTextImage} src={TitleImg} />
+            }
+          />
           <NavList list={navList.map(item => ({ ...item, content: item.label }))} />
         </div>
         

@@ -41,6 +41,7 @@ export namespace Styles {
       display: flex;
       align-items: center;
       cursor: pointer;
+      transition: all 0.15s ease-in-out;
     }
     a:hover {
       color: ${CommonStyles.Colors.primary};
@@ -49,8 +50,12 @@ export namespace Styles {
   export const TitleIcon = css`
     width: ${px2rem(42)};
     height: ${px2rem(42)};
-    margin-right: ${px2rem(16)};
+    margin-right: ${px2rem(4)};
     border-radius: 50%;
+  `;
+  export const TitleTextImage = css`
+    width: ${px2rem(104)};
+    height: ${px2rem(40)};
   `;
 
   export const NavList = css`
@@ -68,6 +73,7 @@ export namespace Styles {
       display: flex;
       align-items: center;
       cursor: pointer;
+      transition: all 0.15s ease-in-out;
     }
     a:hover {
       color: ${CommonStyles.Colors.primary};
