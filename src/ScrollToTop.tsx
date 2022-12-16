@@ -4,11 +4,11 @@ import { Styles } from './ScrollToTop.style';
 import ScrollToTopIcon from './assets/icon/arrow-up.svg';
 
 export const ScrollToTop = React.memo<{
-  target: HTMLElement;
+  target?: HTMLElement | null;
   onClick?: () => void;
-}>(({ target, onClick }) => {
+}>(({ target = window, onClick }) => {
   const scrollToTop = () => {
-    target.scrollTo({
+    target?.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth',

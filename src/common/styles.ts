@@ -20,4 +20,11 @@ export namespace CommonStyles {
   export const Shadows = {
     common: '0px 4px 8px rgba(180, 180, 180, 0.25)',
   };
+
+  export const ZIndex = {
+    header: 10,
+    scrollToTop: 11,
+    content: 1,
+    songlistContent: 2,
+  };
 }

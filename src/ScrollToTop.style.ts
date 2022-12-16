@@ -8,6 +8,7 @@ export namespace Styles {
     position: fixed;
     left: ${`calc((100% + ${px2rem(CommonStyles.ContentWidth)}) / 2 + ${px2rem(56)})`};
     bottom: ${px2rem(56)};
+    z-index: ${CommonStyles.ZIndex.scrollToTop};
   `;
   export const ScrollToTopButton = css`
     width: ${px2rem(80)};

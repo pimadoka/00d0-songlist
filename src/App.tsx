@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { CommonStyles } from './common/styles';
 import { Header } from './Header';
 import { SongList } from './SongList';
@@ -8,12 +8,11 @@ import { px2rem } from './utils';
 import { songList } from './data/songList';
 import { ScrollToTop } from './ScrollToTop';
 
-const MainStyle = css({
-  width: '100%',
-  height: '100vh',
-  background: CommonStyles.Colors.bg.primary,
-  overflow: 'auto',
-});
+const MainStyle = css`
+  width: 100%;
+  background: ${CommonStyles.Colors.bg.primary};
+  z-index: ${CommonStyles.ZIndex.content};
+`;
 const ContentStyle = css`
   max-width: ${px2rem(CommonStyles.ContentWidth)};
   margin: 0 auto;
@@ -25,8 +24,6 @@ const ActionBarStyle = css`
 
 function App() {
   const [filterSongList, setFilterSongList] = useState(songList);
-  
-  const mainContainerRef = useRef<HTMLElement>(null);
 
   const onSearch = (searchStr: string) => {
     setFilterSongList(
@@ -38,7 +35,7 @@ function App() {
   }
 
   return (
-    <main ref={mainContainerRef} className={MainStyle}>
+    <main className={MainStyle}>
       <Header />
       <section className={ContentStyle}>
         <div className={ActionBarStyle}>
@@ -46,7 +43,7 @@ function App() {
         </div>
         <SongList list={filterSongList} />
       </section>
-      {mainContainerRef.current && <ScrollToTop target={mainContainerRef.current} />}
+      <ScrollToTop />
     </main>
   );
 }

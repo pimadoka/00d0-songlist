@@ -4,13 +4,22 @@ import { CommonStyles } from './common/styles';
 import { px2rem } from './utils';
 
 export namespace Styles {
-  export const Table = css`
-    width: 100%;
+  export const Container = css`
+    position: relative;
+    margin-top: ${px2rem(32)};
+  `;
+
+  export const TableBg = css`
     box-shadow: ${CommonStyles.Shadows.common};
     background: ${CommonStyles.Colors.bg.secondary};
     border-radius: ${px2rem(4)};
     overflow: hidden;
-    margin-top: ${px2rem(32)};
+  `;
+
+  export const Table = css`
+    position: relative;
+    z-index: ${CommonStyles.ZIndex.songlistContent};
+    width: 100%;
   `;
 
   export const HeaderRow = css`

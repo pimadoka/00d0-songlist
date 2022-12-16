@@ -16,6 +16,7 @@ export namespace Styles {
     backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
+    z-index: ${CommonStyles.ZIndex.header};
   `;
   export const HeaderContent = css`
     max-width: ${px2rem(HeaderContentWidth)};
