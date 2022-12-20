@@ -7,9 +7,12 @@ export namespace Styles {
     background: ${CommonStyles.Colors.bg.secondary};
     box-shadow: ${CommonStyles.Shadows.common};
     border-radius: ${px2rem(4)};
-    width: ${px2rem(375)};
+    width: 100%;
     height: ${px2rem(52)};
     display: flex;
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      width: ${px2rem(375)};
+    }
   `;
   export const SearchInput = css`
     outline: 0;

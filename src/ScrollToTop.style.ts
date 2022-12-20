@@ -6,9 +6,13 @@ import { px2rem } from './utils';
 export namespace Styles {
   export const ScrollToTopPosition = css`
     position: fixed;
-    left: ${`calc((100% + ${px2rem(CommonStyles.ContentWidth)}) / 2 + ${px2rem(56)})`};
+    right: ${px2rem(20)};
     bottom: ${px2rem(56)};
     z-index: ${CommonStyles.ZIndex.scrollToTop};
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints['2xl']}) {
+      left: ${`calc((100% + ${px2rem(CommonStyles.ContentWidth)}) / 2 + ${px2rem(36)})`};
+      right: unset;
+    }
   `;
   export const ScrollToTopButton = css`
     width: ${px2rem(80)};

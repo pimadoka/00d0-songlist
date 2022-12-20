@@ -26,6 +26,9 @@ export namespace Styles {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
+      padding: 0;
+    }
   `;
   export const HeaderSide = css`
     display: flex;
@@ -60,8 +63,11 @@ export namespace Styles {
   `;
 
   export const NavList = css`
-    display: inline-block;
+    display: none;
     margin-left: ${px2rem(20)};
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      display: inline-block;
+    }
   `;
   export const NavItem = css`
     display: inline-block;

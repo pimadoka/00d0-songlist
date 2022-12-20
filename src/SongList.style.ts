@@ -12,8 +12,12 @@ export namespace Styles {
   export const TableBg = css`
     box-shadow: ${CommonStyles.Shadows.common};
     background: ${CommonStyles.Colors.bg.secondary};
-    border-radius: ${px2rem(4)};
-    overflow: hidden;
+    overflow-x: auto;
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
+      overflow-x: hidden;
+      overflow-y: hidden;
+      border-radius: ${px2rem(4)};
+    }
   `;
 
   export const Table = css`

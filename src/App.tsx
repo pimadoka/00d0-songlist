@@ -20,6 +20,10 @@ const ContentStyle = css`
 `;
 const ActionBarStyle = css`
   margin-top: ${px2rem(32)};
+  padding: 0 ${px2rem(16)};
+  @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
+    padding: 0;
+  }
 `;
 
 function App() {

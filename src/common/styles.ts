@@ -1,6 +1,14 @@
 export namespace CommonStyles {
   export const ContentWidth = 1280;
 
+  export const ScreenBreakpoints = {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+  };
+
   export const Colors = {
     primary: '#EE6867',
     bg: {
