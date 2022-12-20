@@ -17,6 +17,9 @@ const ImgStyle = css`
   opacity: 0.1;
   pointer-events: none;
   /* filter: blur(1px); */
+  @media screen and (max-height: 580px) {
+    display: none;
+  }
 `;
 
 export const SongListBg: React.FC = () => {
