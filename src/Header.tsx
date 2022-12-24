@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Styles } from './Header.style';
 import AvatarImg from './assets/imgs/avatar-1.jpg';
 import TitleImg from './assets/imgs/title.png';
+import MenuIcon from './assets/icon/menu.svg';
 
 const titleText = '凜凜蝶凜';
 const navList = [
@@ -59,7 +60,9 @@ const Title: React.FC<{
 }
 
 export const Header: React.FC = () => {
-  return (
+  const [showMenu, setShowMenu] = useState(false);
+
+  return <>
     <header className={Styles.Header}>
       <div className={Styles.HeaderContent}>
 
@@ -74,11 +77,29 @@ export const Header: React.FC = () => {
         </div>
         
         <div className={Styles.HeaderSide}>
-          {/* TODO 明暗主题 */}
-          {/* TODO 国际化 */}
-          {/* TODO 菜单(窄屏幕下) */}
+          <button className={Styles.MenuButton} onClick={() => {
+            setShowMenu(!showMenu);
+          }}>
+            <img src={MenuIcon} />
+          </button>
         </div>
       </div>
     </header>
-  );
+
+    {showMenu && (
+      <div className={Styles.Overlay}>
+        <div className={Styles.Menu}>
+          <nav>
+            <ul>
+              {navList.map(item => (
+                <li key={item.key} className={Styles.MenuItem}>
+                  <a href={item.url}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    )}
+  </>;
 }

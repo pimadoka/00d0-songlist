@@ -22,12 +22,15 @@ export namespace Styles {
     max-width: ${px2rem(HeaderContentWidth)};
     height: ${px2rem(HeaderHeight)};
     margin: 0 auto;
-    padding: 0 ${px2rem(16)};
+    padding: 0 0 0 ${px2rem(16)};
     display: flex;
     align-items: center;
     justify-content: space-between;
     @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
       padding: 0;
+    }
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      padding: 0 ${px2rem(16)};
     }
   `;
   export const HeaderSide = css`
@@ -84,6 +87,50 @@ export namespace Styles {
     }
     a:hover {
       color: ${CommonStyles.Colors.primary};
+    }
+  `;
+
+  export const MenuButton = css`
+    width: ${px2rem(HeaderHeight)};
+    height: ${px2rem(HeaderHeight)};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > img {
+      width: ${px2rem(24)};
+      height: ${px2rem(24)};
+    }
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      display: none;
+    }
+  `;
+  export const Overlay = css`
+    position: sticky;
+    height: 0;
+    top: ${px2rem(HeaderHeight)};
+    left: 0;
+    right: 0;
+    z-index: ${CommonStyles.ZIndex.header};
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      display: none;
+    }
+  `;
+  export const Menu = css`
+    background: ${transparentize(0.25, CommonStyles.Colors.bg.secondary)};
+    box-shadow: ${CommonStyles.Shadows.common};
+    backdrop-filter: blur(8px);
+  `;
+  export const MenuItem = css`
+    height: ${px2rem(56)};
+    padding: 0 ${px2rem(16)};
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    a {
+      color: ${CommonStyles.Colors.fg.low};
+    }
+    &:hover {
+      background: ${transparentize(0.75, CommonStyles.Colors.primary)};
     }
   `;
 };
