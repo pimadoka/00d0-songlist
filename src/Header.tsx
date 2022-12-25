@@ -86,7 +86,9 @@ export const Header: React.FC = () => {
         </div>
         
         <div className={styles.headerSide}>
-          <Switch className={styles.themeSwitchInHeader} checked={theme === 'light'} onChange={v => setTheme(v ? 'light' : 'dark')} />
+          <div className={styles.themeSwitchInHeader}>
+            <Switch checked={theme === 'light'} onChange={v => setTheme(v ? 'light' : 'dark')} />
+          </div>
           <button className={styles.menuButton} onClick={() => {
             setShowMenu(!showMenu);
           }}>
