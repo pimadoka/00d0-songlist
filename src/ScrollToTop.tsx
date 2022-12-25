@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Styles } from './ScrollToTop.style';
-import ScrollToTopIcon from './assets/icon/arrow-up.svg';
+import { ReactComponent as ScrollToTopIcon } from './assets/icon/arrow-up.svg';
 
 export const ScrollToTop = React.memo<{
   target?: HTMLElement | null;
@@ -23,7 +23,7 @@ export const ScrollToTop = React.memo<{
         onClick?.();
       }}
     >
-      <img className={Styles.ScrollToTopIcon} src={ScrollToTopIcon} />
+      <ScrollToTopIcon className={Styles.ScrollToTopIcon} />
     </button>
   );
 });

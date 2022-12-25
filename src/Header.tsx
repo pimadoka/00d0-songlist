@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Styles } from './Header.style';
 import AvatarImg from './assets/imgs/avatar-1.jpg';
 import TitleImg from './assets/imgs/title.png';
-import MenuIcon from './assets/icon/menu.svg';
+import { ReactComponent as MenuIcon } from './assets/icon/menu.svg';
 
 const titleText = '凜凜蝶凜';
 const navList = [
@@ -80,7 +80,7 @@ export const Header: React.FC = () => {
           <button className={Styles.MenuButton} onClick={() => {
             setShowMenu(!showMenu);
           }}>
-            <img src={MenuIcon} />
+            <MenuIcon className={Styles.MenuIcon} />
           </button>
         </div>
       </div>

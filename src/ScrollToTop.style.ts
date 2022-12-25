@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-import { transparentize } from 'polished';
 import { CommonStyles } from './common/styles';
 import { px2rem } from './utils';
 
@@ -23,9 +22,11 @@ export namespace Styles {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: ${CommonStyles.Colors.fg.primary};
     transition: all 0.3s ease-in-out;
     &:hover {
-      background: ${transparentize(0.75, CommonStyles.Colors.primary)};
+      background: ${CommonStyles.Colors.primary};
+      color: #ffffff;
     }
   `;
   export const ScrollToTopIcon = css`

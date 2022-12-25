@@ -96,13 +96,14 @@ export namespace Styles {
     display: flex;
     align-items: center;
     justify-content: center;
-    > img {
-      width: ${px2rem(24)};
-      height: ${px2rem(24)};
-    }
     @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
       display: none;
     }
+  `;
+  export const MenuIcon = css`
+    color: ${CommonStyles.Colors.fg.primary};
+    width: ${px2rem(24)};
+    height: ${px2rem(24)};
   `;
   export const Overlay = css`
     position: sticky;
