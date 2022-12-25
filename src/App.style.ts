@@ -8,7 +8,7 @@ export const useStyles = () => {
 
   const main = css`
     width: 100%;
-    background: ${CommonStyles.Colors[theme].bg.primary};
+    background: ${CommonStyles.Colors[theme].bg.secondary};
     z-index: ${CommonStyles.ZIndex.content};
   `;
   const content = css`

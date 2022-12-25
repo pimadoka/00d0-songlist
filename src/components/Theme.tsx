@@ -16,7 +16,7 @@ export const ThemeProvider: React.FC<{
 }> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('light');
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

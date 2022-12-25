@@ -19,7 +19,7 @@ export const useStyles = () => {
   const scrollToTopButton = css`
     width: ${px2rem(80)};
     height: ${px2rem(80)};
-    background: ${CommonStyles.Colors[theme].bg.secondary};
+    background: ${CommonStyles.Colors[theme].bg.primary};
     box-shadow: ${CommonStyles.Shadows[theme].common};
     border-radius: ${px2rem(4)};
     display: flex;

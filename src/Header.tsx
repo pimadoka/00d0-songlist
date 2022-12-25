@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useStyles } from './Header.style';
 import AvatarImg from './assets/imgs/avatar.jpg';
 import TitleImg from './assets/imgs/title.png';
+import Switch from './components/Switch';
 import { ReactComponent as MenuIcon } from './assets/icon/menu.svg';
+import { useTheme } from './components/Theme';
 
 const titleText = '凜凜蝶凜';
 const navList = [
@@ -65,6 +67,7 @@ const Title: React.FC<{
 
 export const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const styles = useStyles();
 
@@ -83,6 +86,7 @@ export const Header: React.FC = () => {
         </div>
         
         <div className={styles.headerSide}>
+          <Switch className={styles.themeSwitchInHeader} checked={theme === 'light'} onChange={v => setTheme(v ? 'light' : 'dark')} />
           <button className={styles.menuButton} onClick={() => {
             setShowMenu(!showMenu);
           }}>
@@ -104,6 +108,12 @@ export const Header: React.FC = () => {
               ))}
             </ul>
           </nav>
+          <div className={styles.menuExtra}>
+            <div className={styles.menuRow}>
+              <span className={styles.menuLabel}>主题</span>
+              <Switch checked={theme === 'light'} onChange={v => setTheme(v ? 'light' : 'dark')} />
+            </div>
+          </div>
         </div>
       </div>
     )}

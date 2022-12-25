@@ -2,6 +2,24 @@ import { transparentize } from "polished";
 
 export type Theme = 'light' | 'dark';
 
+interface ColorConfigDef {
+  primary: string;
+  bg: {
+    primary: string;
+    secondary: string;
+    low: string;
+  },
+  fg: {
+    primary: string;
+    secondary: string;
+    low: string;
+    reverse: string;
+  },
+  border: {
+    level1: string;
+  },
+}
+
 export namespace CommonStyles {
   export const ContentWidth = 1280;
 
@@ -13,12 +31,13 @@ export namespace CommonStyles {
     '2xl': '1536px',
   };
 
-  export const Colors = {
+  export const Colors: Record<Theme, ColorConfigDef> = {
     light: {
       primary: '#EE6867',
       bg: {
-        primary: '#F3F3F3',
-        secondary: '#FFFFFF',
+        primary: '#FFFFFF',
+        secondary: '#F3F3F3',
+        low: '#D3D3D3',
       },
       fg: {
         primary: '#222222',
@@ -33,8 +52,9 @@ export namespace CommonStyles {
     dark: {
       primary: '#EE6867',
       bg: {
-        primary: '#3a3b3c',
-        secondary: '#2E2E2E',
+        primary: '#2E2E2E',
+        secondary: '#3A3B3C',
+        low: '#535353',
       },
       fg: {
         primary: '#EEEEEE',

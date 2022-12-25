@@ -13,7 +13,7 @@ export const useStyles = () => {
   const header = css`
     width: 100%;
     height: ${px2rem(HeaderHeight)};
-    background: ${transparentize(0.25, CommonStyles.Colors[theme].bg.secondary)};
+    background: ${transparentize(0.25, CommonStyles.Colors[theme].bg.primary)};
     box-shadow: ${CommonStyles.Shadows[theme].common};
     backdrop-filter: blur(8px);
     position: sticky;
@@ -37,6 +37,7 @@ export const useStyles = () => {
   `;
   const headerSide = css`
     display: flex;
+    align-items: center;
   `;
 
   const title = css`
@@ -92,6 +93,12 @@ export const useStyles = () => {
     }
   `;
 
+  const themeSwitchInHeader = css`
+    display: none;
+    @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.sm}) {
+      display: block;
+    }
+  `;
   const menuButton = css`
     width: ${px2rem(HeaderHeight)};
     height: ${px2rem(HeaderHeight)};
@@ -119,15 +126,19 @@ export const useStyles = () => {
     }
   `;
   const menu = css`
-    background: ${transparentize(0.25, CommonStyles.Colors[theme].bg.secondary)};
+    background: ${transparentize(0.25, CommonStyles.Colors[theme].bg.primary)};
     box-shadow: ${CommonStyles.Shadows[theme].common};
     backdrop-filter: blur(8px);
+    border-top: 1px solid ${CommonStyles.Colors[theme].border.level1};
   `;
-  const menuItem = css`
+  const menuRow = css`
     height: ${px2rem(56)};
     padding: 0 ${px2rem(16)};
     display: flex;
     align-items: center;
+    color: ${CommonStyles.Colors[theme].fg.low};
+  `;
+  const menuItem = css(menuRow, `
     cursor: pointer;
     a {
       color: ${CommonStyles.Colors[theme].fg.low};
@@ -135,6 +146,12 @@ export const useStyles = () => {
     &:hover {
       background: ${transparentize(0.75, CommonStyles.Colors[theme].primary)};
     }
+  `);
+  const menuExtra = css`
+    border-top: 1px solid ${CommonStyles.Colors[theme].border.level1};
+  `;
+  const menuLabel = css`
+    margin-right: 0.5em;
   `;
 
   return {
@@ -146,10 +163,14 @@ export const useStyles = () => {
     titleTextImage,
     navList,
     navItem,
+    themeSwitchInHeader,
     menuButton,
     menuIcon,
     overlay,
     menu,
+    menuRow,
     menuItem,
+    menuExtra,
+    menuLabel,
   };
 }

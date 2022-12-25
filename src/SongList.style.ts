@@ -14,7 +14,7 @@ export const useStyles = () => {
 
   const tableBg = css`
     box-shadow: ${CommonStyles.Shadows[theme].common};
-    background: ${CommonStyles.Colors[theme].bg.secondary};
+    background: ${CommonStyles.Colors[theme].bg.primary};
     overflow-x: auto;
     @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
       overflow-x: hidden;
