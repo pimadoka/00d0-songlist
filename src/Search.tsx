@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Styles } from './Search.style';
+import { useStyles } from './Search.style';
 import { ReactComponent as SearchIcon } from './assets/icon/search.svg';
 
 export const Search = React.memo<{
@@ -7,10 +7,12 @@ export const Search = React.memo<{
 }>(({ onSearch }) => {
   const [searchStr, setSearchStr] = useState('');
 
+  const styles = useStyles();
+
   return (
-    <div className={Styles.SearchCard}>
+    <div className={styles.searchCard}>
       <input
-        className={Styles.SearchInput}
+        className={styles.searchInput}
         value={searchStr}
         onChange={(e) => setSearchStr(e.target.value)}
         onKeyDown={(e) => {
@@ -19,8 +21,8 @@ export const Search = React.memo<{
           }
         }}
       />
-      <button className={Styles.SearchButton} onClick={() => onSearch(searchStr)}>
-        <SearchIcon className={Styles.SearchIcon} />
+      <button className={styles.searchButton} onClick={() => onSearch(searchStr)}>
+        <SearchIcon className={styles.searchIcon} />
       </button>
     </div>
   );

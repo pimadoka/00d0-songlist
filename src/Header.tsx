@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Styles } from './Header.style';
-import AvatarImg from './assets/imgs/avatar-1.jpg';
+import { useStyles } from './Header.style';
+import AvatarImg from './assets/imgs/avatar.jpg';
 import TitleImg from './assets/imgs/title.png';
 import { ReactComponent as MenuIcon } from './assets/icon/menu.svg';
 
@@ -29,11 +29,13 @@ const NavList: React.FC<{
 }> = ({
   list = [],
 }) => {
+  const styles = useStyles();
+
   return (
-    <nav className={Styles.NavList}>
+    <nav className={styles.navList}>
       <ul>
         {list.map((item) => (
-          <li key={item.key} className={Styles.NavItem}>
+          <li key={item.key} className={styles.navItem}>
             <a href={item.url} target='_blank'>{item.content}</a>
           </li>
         ))}
@@ -49,10 +51,12 @@ const Title: React.FC<{
   icon,
   content,
 }) => {
+  const styles = useStyles();
+  
   return (
-    <h1 className={Styles.Title}>
+    <h1 className={styles.title}>
       <a href='/'>
-        <img className={Styles.TitleIcon} src={icon} />
+        <img className={styles.titleIcon} src={icon} />
         {content}
       </a>
     </h1>
@@ -62,37 +66,39 @@ const Title: React.FC<{
 export const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
 
-  return <>
-    <header className={Styles.Header}>
-      <div className={Styles.HeaderContent}>
+  const styles = useStyles();
 
-        <div className={Styles.HeaderSide}>
+  return <>
+    <header className={styles.header}>
+      <div className={styles.headerContent}>
+
+        <div className={styles.headerSide}>
           <Title
             icon={AvatarImg}
             content={
-              <img className={Styles.TitleTextImage} src={TitleImg} />
+              <img className={styles.titleTextImage} src={TitleImg} />
             }
           />
           <NavList list={navList.map(item => ({ ...item, content: item.label }))} />
         </div>
         
-        <div className={Styles.HeaderSide}>
-          <button className={Styles.MenuButton} onClick={() => {
+        <div className={styles.headerSide}>
+          <button className={styles.menuButton} onClick={() => {
             setShowMenu(!showMenu);
           }}>
-            <MenuIcon className={Styles.MenuIcon} />
+            <MenuIcon className={styles.menuIcon} />
           </button>
         </div>
       </div>
     </header>
 
     {showMenu && (
-      <div className={Styles.Overlay}>
-        <div className={Styles.Menu}>
+      <div className={styles.overlay}>
+        <div className={styles.menu}>
           <nav>
             <ul>
               {navList.map(item => (
-                <li key={item.key} className={Styles.MenuItem}>
+                <li key={item.key} className={styles.menuItem}>
                   <a href={item.url}>{item.label}</a>
                 </li>
               ))}

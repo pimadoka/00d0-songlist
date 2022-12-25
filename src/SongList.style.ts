@@ -1,17 +1,20 @@
 import { css } from '@emotion/css';
 import { transparentize } from 'polished';
 import { CommonStyles } from './common/styles';
+import { useTheme } from './components/Theme';
 import { px2rem } from './utils';
 
-export namespace Styles {
-  export const Container = css`
+export const useStyles = () => {
+  const { theme } = useTheme();
+
+  const container = css`
     position: relative;
     margin-top: ${px2rem(32)};
   `;
 
-  export const TableBg = css`
-    box-shadow: ${CommonStyles.Shadows.common};
-    background: ${CommonStyles.Colors.bg.secondary};
+  const tableBg = css`
+    box-shadow: ${CommonStyles.Shadows[theme].common};
+    background: ${CommonStyles.Colors[theme].bg.secondary};
     overflow-x: auto;
     @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
       overflow-x: hidden;
@@ -20,35 +23,45 @@ export namespace Styles {
     }
   `;
 
-  export const Table = css`
+  const table = css`
     position: relative;
     z-index: ${CommonStyles.ZIndex.songlistContent};
     width: 100%;
   `;
 
-  export const HeaderRow = css`
-    background: ${CommonStyles.Colors.primary};
+  const headerRow = css`
+    background: ${CommonStyles.Colors[theme].primary};
   `;
-  export const HeaderCell = css`
+  const headerCell = css`
     padding: ${px2rem(24)} ${px2rem(24)};
     font-size: ${px2rem(18)};
-    color: #FFFFFF;
+    color: ${CommonStyles.Colors[theme].fg.reverse};
     font-weight: 500;
     text-align: left;
     white-space: nowrap;
   `;
-  export const BodyRow = css`
-    border-top: 1px solid ${CommonStyles.Colors.border.level1};
+  const bodyRow = css`
+    border-top: 1px solid ${CommonStyles.Colors[theme].border.level1};
     transition: all 0.3s ease-in-out;
     &:hover {
-      background: ${transparentize(0.75, CommonStyles.Colors.primary)};
+      background: ${transparentize(0.75, CommonStyles.Colors[theme].primary)};
     }
   `;
-  export const BodyCell = css`
+  const bodyCell = css`
     padding: ${px2rem(20)} ${px2rem(24)};
     font-size: ${px2rem(16)};
-    color: ${CommonStyles.Colors.fg.primary};
+    color: ${CommonStyles.Colors[theme].fg.primary};
     font-weight: 400;
     text-align: left;
   `;
+
+  return {
+    container,
+    tableBg,
+    table,
+    headerRow,
+    headerCell,
+    bodyRow,
+    bodyCell,
+  };
 }

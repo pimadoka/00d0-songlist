@@ -1,32 +1,15 @@
-import { css } from '@emotion/css';
 import { useState } from 'react';
-import { CommonStyles } from './common/styles';
 import { Header } from './Header';
 import { SongList } from './SongList';
 import { Search } from './Search';
-import { px2rem } from './utils';
 import { songList } from './data/songList';
 import { ScrollToTop } from './ScrollToTop';
+import { useStyles } from './App.style';
+import { ThemeProvider } from './components/Theme';
 
-const MainStyle = css`
-  width: 100%;
-  background: ${CommonStyles.Colors.bg.primary};
-  z-index: ${CommonStyles.ZIndex.content};
-`;
-const ContentStyle = css`
-  max-width: ${px2rem(CommonStyles.ContentWidth)};
-  margin: 0 auto;
-  padding-bottom: ${px2rem(60)};
-`;
-const ActionBarStyle = css`
-  margin-top: ${px2rem(32)};
-  padding: 0 ${px2rem(16)};
-  @media screen and (min-width: ${CommonStyles.ScreenBreakpoints.xl}) {
-    padding: 0;
-  }
-`;
+const SongListPage: React.FC = () => {
+  const styles = useStyles();
 
-function App() {
   const [filterSongList, setFilterSongList] = useState(songList);
 
   const onSearch = (searchStr: string) => {
@@ -39,16 +22,24 @@ function App() {
   }
 
   return (
-    <main className={MainStyle}>
+    <main className={styles.main}>
       <Header />
-      <section className={ContentStyle}>
-        <div className={ActionBarStyle}>
+      <section className={styles.content}>
+        <div className={styles.actionBar}>
           <Search onSearch={onSearch} />
         </div>
         <SongList list={filterSongList} />
       </section>
       <ScrollToTop />
     </main>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <SongListPage />
+    </ThemeProvider>
   );
 }
 

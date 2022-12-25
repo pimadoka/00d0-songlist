@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { SongListBg } from './SongListBg';
-import { Styles } from './SongList.style';
+import { useStyles } from './SongList.style';
 
 interface SongDef {
   id: number;
@@ -21,25 +21,27 @@ export const SongList = React.memo<SongListProps>(({
 }) => {
   const showBgImg = useMemo(() => MinRowHeight * list.length >= ShowBgImgHeight, [list.length]);
 
+  const styles = useStyles();
+
   return (
-    <section className={Styles.Container}>
-      <div className={Styles.TableBg}>
-        <table className={Styles.Table}>
+    <section className={styles.container}>
+      <div className={styles.tableBg}>
+        <table className={styles.table}>
           <thead>
-            <tr className={Styles.HeaderRow}>
-              <th className={Styles.HeaderCell}></th>
-              <th className={Styles.HeaderCell}>歌名</th>
-              <th className={Styles.HeaderCell}>歌手</th>
-              <th className={Styles.HeaderCell}>语言</th>
+            <tr className={styles.headerRow}>
+              <th className={styles.headerCell}></th>
+              <th className={styles.headerCell}>歌名</th>
+              <th className={styles.headerCell}>歌手</th>
+              <th className={styles.headerCell}>语言</th>
             </tr>
           </thead>
           <tbody>
             {list.map((item, i) => (
-              <tr key={item.id} className={Styles.BodyRow}>
-                <td className={Styles.BodyCell}>{i + 1}</td>
-                <td className={Styles.BodyCell}>{item.song}</td>
-                <td className={Styles.BodyCell}>{item.singer}</td>
-                <td className={Styles.BodyCell}>{item.lang}</td>
+              <tr key={item.id} className={styles.bodyRow}>
+                <td className={styles.bodyCell}>{i + 1}</td>
+                <td className={styles.bodyCell}>{item.song}</td>
+                <td className={styles.bodyCell}>{item.singer}</td>
+                <td className={styles.bodyCell}>{item.lang}</td>
               </tr>
             ))}
           </tbody>

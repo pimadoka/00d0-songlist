@@ -1,11 +1,14 @@
 import { css } from '@emotion/css';
 import { CommonStyles } from './common/styles';
+import { useTheme } from './components/Theme';
 import { px2rem } from './utils';
 
-export namespace Styles {
-  export const SearchCard = css`
-    background: ${CommonStyles.Colors.bg.secondary};
-    box-shadow: ${CommonStyles.Shadows.common};
+export const useStyles = () => {
+  const { theme } = useTheme();
+
+  const searchCard = css`
+    background: ${CommonStyles.Colors[theme].bg.secondary};
+    box-shadow: ${CommonStyles.Shadows[theme].common};
     border-radius: ${px2rem(4)};
     width: 100%;
     height: ${px2rem(52)};
@@ -14,7 +17,7 @@ export namespace Styles {
       width: ${px2rem(375)};
     }
   `;
-  export const SearchInput = css`
+  const searchInput = css`
     outline: 0;
     border: 0;
     height: 100%;
@@ -22,18 +25,25 @@ export namespace Styles {
     background: transparent;
     padding: 0 ${px2rem(16)};
     font-size: ${px2rem(16)};
-    color: ${CommonStyles.Colors.fg.primary};
+    color: ${CommonStyles.Colors[theme].fg.primary};
   `;
-  export const SearchButton = css`
+  const searchButton = css`
     width: ${px2rem(52)};
     height: ${px2rem(52)};
     display: flex;
     align-items: center;
     justify-content: center;
   `;
-  export const SearchIcon = css`
+  const searchIcon = css`
     width: ${px2rem(24)};
     height: ${px2rem(24)};
-    color: ${CommonStyles.Colors.fg.primary};
+    color: ${CommonStyles.Colors[theme].fg.primary};
   `;
+
+  return {
+    searchCard,
+    searchInput,
+    searchButton,
+    searchIcon,
+  };
 }

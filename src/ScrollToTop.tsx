@@ -1,12 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Styles } from './ScrollToTop.style';
+import { useStyles } from './ScrollToTop.style';
 import { ReactComponent as ScrollToTopIcon } from './assets/icon/arrow-up.svg';
 
 export const ScrollToTop = React.memo<{
   target?: HTMLElement | null;
   onClick?: () => void;
 }>(({ target = window, onClick }) => {
+  const styles = useStyles();
+
   const scrollToTop = () => {
     target?.scrollTo({
       top: 0,
@@ -17,13 +19,13 @@ export const ScrollToTop = React.memo<{
 
   return (
     <button
-      className={classnames(Styles.ScrollToTopButton, Styles.ScrollToTopPosition)}
+      className={classnames(styles.scrollToTopButton, styles.scrollToTopPosition)}
       onClick={() => {
         scrollToTop();
         onClick?.();
       }}
     >
-      <ScrollToTopIcon className={Styles.ScrollToTopIcon} />
+      <ScrollToTopIcon className={styles.scrollToTopIcon} />
     </button>
   );
 });

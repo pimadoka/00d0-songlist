@@ -1,3 +1,7 @@
+import { transparentize } from "polished";
+
+export type Theme = 'light' | 'dark';
+
 export namespace CommonStyles {
   export const ContentWidth = 1280;
 
@@ -10,23 +14,47 @@ export namespace CommonStyles {
   };
 
   export const Colors = {
-    primary: '#EE6867',
-    bg: {
-      primary: '#F3F3F3',
-      secondary: '#FFFFFF',
+    light: {
+      primary: '#EE6867',
+      bg: {
+        primary: '#F3F3F3',
+        secondary: '#FFFFFF',
+      },
+      fg: {
+        primary: '#222222',
+        secondary: '#444444',
+        low: '#666666',
+        reverse: '#FFFFFF',
+      },
+      border: {
+        level1: '#F4F4F4',
+      },
     },
-    fg: {
-      primary: '#222222',
-      secondary: '#444444',
-      low: '#666666',
-    },
-    border: {
-      level1: '#F4F4F4',
+    dark: {
+      primary: '#EE6867',
+      bg: {
+        primary: '#3a3b3c',
+        secondary: '#2E2E2E',
+      },
+      fg: {
+        primary: '#EEEEEE',
+        secondary: '#CCCCCC',
+        low: '#AAAAAA',
+        reverse: '#FFFFFF',
+      },
+      border: {
+        level1: '#535353',
+      },
     },
   };
 
   export const Shadows = {
-    common: '0px 4px 8px rgba(180, 180, 180, 0.25)',
+    light: {
+      common: `0px 4px 8px ${transparentize(0.75, '#B4B4B4')}`
+    },
+    dark: {
+      common: `0px 4px 8px ${transparentize(0.75, '#000000')}`
+    },
   };
 
   export const ZIndex = {

@@ -1,9 +1,12 @@
 import { css } from '@emotion/css';
 import { CommonStyles } from './common/styles';
+import { useTheme } from './components/Theme';
 import { px2rem } from './utils';
 
-export namespace Styles {
-  export const ScrollToTopPosition = css`
+export const useStyles = () => {
+  const { theme } = useTheme();
+
+  const scrollToTopPosition = css`
     position: fixed;
     right: ${px2rem(20)};
     bottom: ${px2rem(56)};
@@ -13,24 +16,30 @@ export namespace Styles {
       right: unset;
     }
   `;
-  export const ScrollToTopButton = css`
+  const scrollToTopButton = css`
     width: ${px2rem(80)};
     height: ${px2rem(80)};
-    background: ${CommonStyles.Colors.bg.secondary};
-    box-shadow: ${CommonStyles.Shadows.common};
+    background: ${CommonStyles.Colors[theme].bg.secondary};
+    box-shadow: ${CommonStyles.Shadows[theme].common};
     border-radius: ${px2rem(4)};
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${CommonStyles.Colors.fg.primary};
+    color: ${CommonStyles.Colors[theme].fg.primary};
     transition: all 0.3s ease-in-out;
     &:hover {
-      background: ${CommonStyles.Colors.primary};
-      color: #ffffff;
+      background: ${CommonStyles.Colors[theme].primary};
+      color: ${CommonStyles.Colors[theme].fg.reverse};
     }
   `;
-  export const ScrollToTopIcon = css`
+  const scrollToTopIcon = css`
     width: ${px2rem(36)};
     height: ${px2rem(36)};
   `;
+
+  return {
+    scrollToTopPosition,
+    scrollToTopButton,
+    scrollToTopIcon,
+  };
 }
