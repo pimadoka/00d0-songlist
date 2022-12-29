@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useStyles } from './Header.style';
-import AvatarImg from './assets/imgs/avatar.jpg';
-import TitleImg from './assets/imgs/title.png';
-import Switch from './components/Switch';
-import { ReactComponent as MenuIcon } from './assets/icon/menu.svg';
-import { useTheme } from './components/Theme';
+import { useStyles } from '@/Header.style';
+import Switch from '@/components/Switch';
+import { useTheme } from '@/components/Theme';
+
+import { ReactComponent as MenuIcon } from '@/assets/icon/menu.svg';
+import AvatarImg from '@/assets/imgs/avatar.jpg';
+import TitleImg from '@/assets/imgs/title.png';
 
 const titleText = '凜凜蝶凜';
 const navList = [

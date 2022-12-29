@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { transparentize } from 'polished';
-import { CommonStyles } from './common/styles';
-import { useTheme } from './components/Theme';
-import { px2rem } from './utils';
+import { CommonStyles } from '@/common/styles';
+import { useTheme } from '@/components/Theme';
+import { px2rem } from '@/utils';
 
 const HeaderContentWidth = CommonStyles.ContentWidth;
 const HeaderHeight = 72;

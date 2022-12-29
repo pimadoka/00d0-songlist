@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import React from 'react';
-import { px2rem } from './utils';
+import { px2rem } from '@/utils';
 
-import BgImgSrc from './assets/imgs/bg.png';
+import BgImgSrc from '@/assets/imgs/bg.png';
 
 const useStyles = () => {
   return {

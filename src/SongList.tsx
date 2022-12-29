@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { SongListBg } from './SongListBg';
-import { useStyles } from './SongList.style';
+import { SongListBg } from '@/SongListBg';
+import { useStyles } from '@/SongList.style';
 
 interface SongDef {
   id: number;

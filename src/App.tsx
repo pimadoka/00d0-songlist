@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Header } from './Header';
-import { SongList } from './SongList';
-import { Search } from './Search';
-import { songList } from './data/songList';
-import { ScrollToTop } from './ScrollToTop';
-import { useStyles } from './App.style';
-import { ThemeProvider } from './components/Theme';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Header } from '@/Header';
+import { SongList } from '@/SongList';
+import { Search } from '@/Search';
+import { songList } from '@/data/songList';
+import { ScrollToTop } from '@/ScrollToTop';
+import { useStyles } from '@/App.style';
+import { ThemeProvider } from '@/components/Theme';
+import Csv2JsonPage from '@/pages/csv2json';
 
 const SongListPage: React.FC = () => {
   const styles = useStyles();
@@ -37,9 +39,14 @@ const SongListPage: React.FC = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <SongListPage />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route path='/' element={<SongListPage />} />
+          <Route path='/csv2json' element={<Csv2JsonPage />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
