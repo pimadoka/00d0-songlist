@@ -1,9 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useStyles } from '@/ScrollToTop.style';
+import { useStyles } from './index.style';
+
 import { ReactComponent as ScrollToTopIcon } from '@/assets/icon/arrow-up.svg';
 
-export const ScrollToTop = React.memo<{
+const ScrollToTop = React.memo<{
   target?: HTMLElement | null;
   onClick?: () => void;
 }>(({ target = window, onClick }) => {
@@ -29,3 +30,5 @@ export const ScrollToTop = React.memo<{
     </button>
   );
 });
+
+export default ScrollToTop;

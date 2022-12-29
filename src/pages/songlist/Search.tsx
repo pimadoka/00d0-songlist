@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useStyles } from '@/Search.style';
+import { useStyles } from './Search.style';
+
 import { ReactComponent as SearchIcon } from '@/assets/icon/search.svg';
 
 export const Search = React.memo<{

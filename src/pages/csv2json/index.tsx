@@ -1,15 +1,9 @@
 import { CommonStyles } from '@/common/styles';
+import { SongDef } from '@/common/types';
 import { csv2Records } from '@/utils/csv2Records';
 import { css } from '@emotion/css';
 import React, { useState } from 'react';
 
-interface SongDef {
-  song: string;
-  singer: string;
-  lang: string;
-  url_00d0: string;
-  url_iris: string;
-}
 const SongFields = [
   'song',
   'singer',

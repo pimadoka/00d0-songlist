@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useStyles } from '@/Header.style';
 import Switch from '@/components/Switch';
 import { useTheme } from '@/components/Theme';
+import { useStyles } from './Header.style';
 
 import { ReactComponent as MenuIcon } from '@/assets/icon/menu.svg';
 import AvatarImg from '@/assets/imgs/avatar.jpg';

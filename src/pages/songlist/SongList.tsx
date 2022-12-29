@@ -1,13 +1,7 @@
 import React, { useMemo } from 'react';
-import { SongListBg } from '@/SongListBg';
-import { useStyles } from '@/SongList.style';
-
-interface SongDef {
-  id: number;
-  song: string;
-  singer: string;
-  lang: string;
-}
+import { SongDef } from '@/common/types';
+import { SongListBg } from './SongListBg';
+import { useStyles } from './SongList.style';
 
 interface SongListProps {
   list: SongDef[];
