@@ -1,3 +1,9 @@
+interface ToRecordsOptionsDef {
+  fields?: string[];
+  skipFirstRow?: boolean;
+  id?: boolean;
+}
+
 const checkExistLastRow = (rows: string[][]) => {
   if (rows[rows.length - 1] === undefined) {
     rows.push([]);
@@ -27,7 +33,6 @@ const csv2rows = (inputCsv: string) => {
   const rows: string[][] = [];
 
   let splicing = false;
-  let matchR = false;
 
   const onMatchLinebreack = () => {
     if (splicing) {
@@ -53,16 +58,16 @@ const csv2rows = (inputCsv: string) => {
     }
   }
 
-  return rows;
+  return rows.filter(row => !!row.length);
 }
 
-const rows2Records = (rows: string[][], options?: {
-  skipFirstRow?: boolean;
-  fields?: string[];
-}) => {
-  const { skipFirstRow, fields } = options || {};
-  const records = rows.map(row => {
-    const record: Record<string | number, string> = {};
+const rows2Records = (rows: string[][], options?: ToRecordsOptionsDef) => {
+  const { skipFirstRow, fields, id } = options || {};
+  const records = rows.map((row, rowIndex) => {
+    const record: Record<string | number, string> & { id?: number } = {};
+    if (id) {
+      record['id'] = rowIndex + 1 + (skipFirstRow ? -1 : 0);
+    }
     row.forEach((cell, cellIndex) => {
       if (cell) {
         if (!fields) {
@@ -77,15 +82,11 @@ const rows2Records = (rows: string[][], options?: {
     });
     return record;
   });
-  skipFirstRow && records.pop();
+  skipFirstRow && records.shift();
   return records;
 }
 
-export const csv2Records = (csv: string, options?: {
-  fields?: string[];
-  skipFirstRow?: boolean;
-}) => {
-  const { fields, skipFirstRow } = options || {};
+export const csv2Records = (csv: string, options?: ToRecordsOptionsDef) => {
   const rows = csv2rows(csv);
-  return rows2Records(rows, { fields, skipFirstRow });
+  return rows2Records(rows, options);
 }

@@ -18,6 +18,7 @@ const Csv2JsonPage: React.FC = () => {
   const onUpload = async (file: File) => {
     const csv = await file.text();
     const songList: Partial<SongDef>[] = csv2Records(csv, {
+      id: true,
       skipFirstRow: true,
       fields: SongFields,
     });
