@@ -1,24 +1,24 @@
-:root {
-  min-height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+:root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #222;
+  background-color: #F3F3F3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-div {
-  box-sizing: border-box;
 }
 
 a {
@@ -30,19 +30,7 @@ a:hover {
   color: #ec8f8f;
 }
 
-body {
-  margin: 0;
-}
-
-h1 {
-  margin: 0;
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -54,22 +42,16 @@ table {
 button {
   background: transparent;
   border: 0;
-  padding: 0;
   cursor: pointer;
-}
-button:hover {
-}
-button:focus,
-button:focus-visible {
-  
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     background: #F3F3F3;
   }
-  a:hover {
-  }
-  button {
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: #3A3B3C;
   }
 }

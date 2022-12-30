@@ -7,6 +7,7 @@ export const useStyles = () => {
   const { theme } = useTheme();
 
   const main = css`
+    min-height: 100vh;
     width: 100%;
     background: ${CommonStyles.Colors[theme].bg.secondary};
     z-index: ${CommonStyles.ZIndex.content};

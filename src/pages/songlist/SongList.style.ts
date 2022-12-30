@@ -33,7 +33,7 @@ export const useStyles = () => {
     background: ${CommonStyles.Colors[theme].primary};
   `;
   const headerCell = css`
-    padding: ${px2rem(24)} ${px2rem(24)};
+    padding: ${px2rem(22)} ${px2rem(24)};
     font-size: ${px2rem(18)};
     color: ${CommonStyles.Colors[theme].fg.reverse};
     font-weight: 500;
