@@ -67,6 +67,9 @@ export const useStyles = () => {
     width: ${px2rem(104)};
     height: ${px2rem(40)};
   `;
+  const titleHiddenText = css`
+    display: none;
+  `;
 
   const navList = css`
     display: none;
@@ -161,6 +164,7 @@ export const useStyles = () => {
     title,
     titleIcon,
     titleTextImage,
+    titleHiddenText,
     navList,
     navItem,
     themeSwitchInHeader,

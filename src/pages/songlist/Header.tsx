@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Switch from '@/components/Switch';
 import { useTheme } from '@/components/Theme';
+import { HomePageTitle } from '@/common';
 import { useStyles } from './Header.style';
 
 import { ReactComponent as MenuIcon } from '@/assets/icon/menu.svg';
 import AvatarImg from '@/assets/imgs/avatar.jpg';
 import TitleImg from '@/assets/imgs/title.png';
 
-const titleText = '凜凜蝶凜';
 const navList = [
   {
     key: 'bilibili-space',
@@ -80,7 +80,10 @@ export const Header: React.FC = () => {
           <Title
             icon={AvatarImg}
             content={
-              <img className={styles.titleTextImage} src={TitleImg} />
+              <>
+                <img className={styles.titleTextImage} src={TitleImg} alt={HomePageTitle} />
+                <h1 className={styles.titleHiddenText}>{HomePageTitle}</h1>
+              </>
             }
           />
           <NavList list={navList.map(item => ({ ...item, content: item.label }))} />
