@@ -16,7 +16,11 @@
 
 感谢切片man们的歌切，极大方便了补充歌手数据
 
-## 关注凜凜蝶凜喵，关注凜凜蝶凜谢谢喵
+## 凜凜蝶凜是谁
+
+凜凜蝶凜是在bilibili活动的虚拟主播
+
+关注凜凜蝶凜喵，关注凜凜蝶凜谢谢喵
 
 - bilibili主页: https://space.bilibili.com/1220317431
 
@@ -43,6 +47,8 @@ React + Typescript + Vite + Emotion
 ## 反馈
 
 有问题和建议欢迎提交Issue
+
+https://github.com/pimadoka/00d0-songlist/issues
 
 ## 协议
 
