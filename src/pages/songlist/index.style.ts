@@ -11,11 +11,14 @@ export const useStyles = () => {
     width: 100%;
     background: ${CommonStyles.Colors[theme].bg.secondary};
     z-index: ${CommonStyles.ZIndex.content};
+    display: flex;
+    flex-direction: column;
   `;
   const content = css`
+    width: 100%;
     max-width: ${px2rem(CommonStyles.ContentWidth)};
     margin: 0 auto;
-    padding-bottom: ${px2rem(60)};
+    flex: 1;
   `;
   const actionBar = css`
     margin-top: ${px2rem(32)};

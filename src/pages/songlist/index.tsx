@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { songList } from '@/data/songList';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Header } from './Header';
+import { Footer } from './Footer';
 import { SongList } from './SongList';
 import { Search } from './Search';
 import { useStyles } from './index.style';
@@ -29,6 +30,7 @@ const SongListPage: React.FC = () => {
         </div>
         <SongList list={filterSongList} />
       </section>
+      <Footer />
       <ScrollToTop />
     </main>
   );
