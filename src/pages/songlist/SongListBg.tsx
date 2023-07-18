@@ -1,8 +1,10 @@
 import { css } from '@emotion/css';
 import React from 'react';
 import { px2rem } from '@/utils';
+import { useTheme } from '@/components/Theme';
 
 import BgImgSrc from '@/assets/imgs/bg.png';
+import DarkBgImgSrc from '@/assets/imgs/bg-dark.png';
 
 const useStyles = () => {
   return {
@@ -16,6 +18,8 @@ const useStyles = () => {
       position: absolute;
       right: ${px2rem(80)};
       bottom: 0;
+      width: ${px2rem(397)};
+      height: ${px2rem(397)};
       opacity: 0.1;
       pointer-events: none;
       /* filter: blur(1px); */
@@ -28,9 +32,10 @@ const useStyles = () => {
 
 export const SongListBg: React.FC = () => {
   const styles = useStyles();
+  const { theme } = useTheme();
   return (
     <div className={styles.container}>
-      <img className={styles.img} src={BgImgSrc} />
+      <img className={styles.img} src={theme === 'light' ? BgImgSrc : DarkBgImgSrc} />
     </div>
   );
 }

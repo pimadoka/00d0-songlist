@@ -6,6 +6,7 @@ import { useStyles } from './Header.style';
 
 import { ReactComponent as MenuIcon } from '@/assets/icon/menu.svg';
 import AvatarImg from '@/assets/imgs/avatar.jpg';
+import DarkAvatarImg from '@/assets/imgs/avatar-dark.jpg';
 import TitleImg from '@/assets/imgs/title.png';
 
 const navList = [
@@ -78,7 +79,7 @@ export const Header: React.FC = () => {
 
         <div className={styles.headerSide}>
           <Title
-            icon={AvatarImg}
+            icon={theme === 'light' ? AvatarImg : DarkAvatarImg}
             content={
               <>
                 <img className={styles.titleTextImage} src={TitleImg} alt={HomePageTitle} />

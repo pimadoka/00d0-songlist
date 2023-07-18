@@ -50,10 +50,10 @@ export namespace CommonStyles {
       },
     },
     dark: {
-      primary: '#EE6867',
+      primary: '#7366b7',
       bg: {
         primary: '#2E2E2E',
-        secondary: '#3A3B3C',
+        secondary: '#313233',
         low: '#535353',
       },
       fg: {
